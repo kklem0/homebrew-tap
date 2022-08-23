@@ -25,8 +25,8 @@ cask "webcord" do
   app "webcord.app"
 
   postflight do
-    `codesign --force --deep --sign - /Applications/webcord.app`
-    `xattr -r -d com.apple.quarantine /Applications/WebCord.app`
+    `codesign --force --deep --sign - "#{appdir}/webcord.app"`
+    `xattr -r -d com.apple.quarantine "#{appdir}/webcord.app"`
   end
 
   zap trash: [
